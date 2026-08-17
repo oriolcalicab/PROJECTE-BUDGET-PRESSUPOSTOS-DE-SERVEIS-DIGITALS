@@ -1,0 +1,5 @@
+{
+    "seo": {"id": "seo", "name": "SEO", "basePrice": 300},
+    "advertising": {"id": "advertising", "name": "Advertising", "basePrice": 400},
+    "web": {"id": "web", "name": "Web", "basePrice": 500, "priceUnit": 30}
+}
