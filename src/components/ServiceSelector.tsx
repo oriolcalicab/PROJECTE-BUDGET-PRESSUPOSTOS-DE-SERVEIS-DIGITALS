@@ -10,7 +10,7 @@ export function ServiceSelector({selectedServices, onToggleService}: Props){
 
     return(
         <main className="space-y-3">
-            <legend className="text-lg font-semibold mb-2">Select your services</legend>
+            <h1 className="text-lg font-semibold mb-2">Select your services</h1>
             {services.map((service) => (
                 <div key={service.id} className="flex items-center gap-3">
                     <input type="checkbox"

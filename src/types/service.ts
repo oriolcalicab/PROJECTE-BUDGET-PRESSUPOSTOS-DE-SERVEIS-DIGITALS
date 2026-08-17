@@ -6,6 +6,6 @@ export interface Service{
 }
 
 export interface WebConfig{
-    page: number;
-    lenguages: number
+    pages: number;
+    languages: number
 }
