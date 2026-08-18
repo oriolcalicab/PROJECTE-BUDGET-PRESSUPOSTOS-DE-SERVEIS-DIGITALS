@@ -1,4 +1,5 @@
 import type { WebConfig } from "../types/service";
+import { isPositiveNumber } from "../utils/validations";    
 
 interface Props{
     isVisible: boolean;
@@ -23,7 +24,7 @@ export function WebConfigurator ({ isVisible, webConfig, onChangeWebConfig }: Pr
             min={0}
             value={webConfig.pages}
             onChange={(e) => onChangeWebConfig({ ...webConfig, pages: Number(e.target.value)})}
-            aria-invalid={webConfig.pages}
+            aria-invalid={isPositiveNumber(webConfig.pages)}
             className="border rounded px-3 py-2 w-full"
              />
         </div>
@@ -38,7 +39,7 @@ export function WebConfigurator ({ isVisible, webConfig, onChangeWebConfig }: Pr
             min={0}
             value={webConfig.languages}
             onChange={(e) => onChangeWebConfig({ ...webConfig, languages: Number(e.target.value)})}
-            aria-invalid={webConfig.languages}
+            aria-invalid={isPositiveNumber(webConfig.languages)}
             className="border rounded px-3 py-2 w-full"
              />
         </div>
