@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { CreateQuote } from "../pages/CreateQuote";
+import { QuoteDetail } from "../pages/QuoteDetail";
 
 
 export function AppRouter() {
@@ -10,6 +11,7 @@ export function AppRouter() {
         </nav>
         <Routes>
           <Route path="/" element={<CreateQuote />} />
+          <Route path="/quote/:id" element={<QuoteDetail />} />
         </Routes>
     </BrowserRouter>
   );
