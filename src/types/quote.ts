@@ -10,6 +10,6 @@ export interface Quote{
     id: string;
     date: string;
     client: ClientData;
-    lines: QuoteLine;
+    lines: QuoteLine [];
     total: number
 }

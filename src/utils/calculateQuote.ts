@@ -4,7 +4,7 @@ import serviceData from "../data/services.json";
 
 interface CalculateInput {
   selectedServices: string[];
-  webConfing?: WebConfig;
+  webConfig?: WebConfig;
 }
 
 interface CalculateOutput {
@@ -20,7 +20,7 @@ interface ServiceData {
 
 export function calculateQuote({
   selectedServices,
-  webConfing,
+  webConfig,
 }: CalculateInput): CalculateOutput {
   const lines: QuoteLine[] = [];
 
@@ -28,9 +28,9 @@ export function calculateQuote({
     const service = (serviceData as Record<string, ServiceData>)[id];
     if (!service) return;
 
-    if (id === "web" && webConfing) {
-      const pages = webConfing.pages ?? 0;
-      const languages = webConfing.languages ?? 0;
+    if (id === "web" && webConfig) {
+      const pages = webConfig.pages ?? 0;
+      const languages = webConfig.languages ?? 0;
       const customizationCost = (pages + languages) * (service.priceUnit ?? 0);
       lines.push({
         serviceId: id,
