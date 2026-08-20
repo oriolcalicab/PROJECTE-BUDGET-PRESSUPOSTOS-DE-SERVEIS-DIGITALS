@@ -54,7 +54,7 @@ export function CreateQuote() {
   }
 
   return(
-    <div className="max-w-xl mx-auto p-4">
+    <div className="max-w-xl mx-auto p-4 md:max-w-2xl md:p-6 lg:max-w-3xl">
         <h1 className="text-2xl font-bold mb-4">Generate your quote</h1>
         <ServiceSelector
             selectedServices={selectedServices}
@@ -75,7 +75,7 @@ export function CreateQuote() {
         <QuoteSummary lines={lines} total={total} />
 
         <button
-            className="mt-6 w-full bg-blue-600 text-white rounded py-3 font-semibold disabled:opacity-40"
+            className="mt-6 w-full md:w-full md:bg-cyan-700 lg:w-full lg:bg-blue-900 bg-blue-600 text-white rounded py-3 font-semibold disabled:opacity-40"
             onClick={handleGenerate}
             disabled={!isFormValid}
         >
