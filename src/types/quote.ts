@@ -3,7 +3,8 @@ import type { ClientData } from "./client"
 export interface QuoteLine{
     serviceId: string;
     name: string;
-    cost: number
+    cost: number;
+    details?: string;
 }
 
 export interface Quote{
