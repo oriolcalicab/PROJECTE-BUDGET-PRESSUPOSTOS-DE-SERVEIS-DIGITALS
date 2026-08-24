@@ -30,8 +30,11 @@ export const QuoteDetail = () => {
         <h2 className="font-semibold mb-2">Quote items</h2>
         <ul className="space-y-1">
           {quote.lines.map((line) => (
-            <li key={line.serviceId}>
+            <li key={line.serviceId} className="flex justify-between items-start">
+              <div>
               <p>{line.name}</p>
+              {line.details && (<p className="text-sm text-gray-500">{line.details}</p>)}
+              </div>
               <p>{line.cost} €</p>
             </li>
           ))}
