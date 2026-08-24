@@ -7,7 +7,7 @@ export const QuoteDetail = () => {
 
   if (!quote) {
     return (
-      <div className="max-w-xl mx-auto p-4">
+      <div className="max-w-xl mx-auto p-4 md:p-6 lg:max-w-2xl">
         <p role="alert">This quote could not be found</p>
       </div>
     );
@@ -36,7 +36,7 @@ export const QuoteDetail = () => {
             </li>
           ))}
         </ul>
-        <p className="font-bold text-xl mt-3 flex justify-between">
+        <p className="font-bold text-xl md:text-2xl mt-3 flex justify-between">
           <span>Total:</span>
           <span>{quote.total} €</span>
         </p>
