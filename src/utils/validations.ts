@@ -3,7 +3,7 @@ export function isValidEmail(email: string): boolean {
 }
 
 export function isValidPhone(phone: string): boolean {
-   return /^[0-9]{9}}$/.test(phone.replace(/\s/g, '')) ;
+  return /^[0-9]{9}$/.test(phone.replace(/\s/g, ""));
 }
 
 export function isValidFullName(fullName: string): boolean {
