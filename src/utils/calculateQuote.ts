@@ -32,10 +32,12 @@ export function calculateQuote({
       const pages = webConfig.pages ?? 0;
       const languages = webConfig.languages ?? 0;
       const customizationCost = (pages + languages) * (service.priceUnit ?? 0);
+      
       lines.push({
         serviceId: id,
         name: service.name,
         cost: service.basePrice + customizationCost,
+        details: `Pages: ${pages}, Languages: ${languages}`,  
       }); // Example calculation for customization cos
     } else {
       lines.push({
