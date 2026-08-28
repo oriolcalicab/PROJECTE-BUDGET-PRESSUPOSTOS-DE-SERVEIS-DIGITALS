@@ -20,7 +20,7 @@ export function ServiceSelector({selectedServices, onToggleService}: Props){
                     aria-checked={selectedServices.includes(service.id)}
                     className="h-5 w-5" 
                     />
-                    <label htmlFor="service.id" className="flex-1">
+                    <label htmlFor={service.id} className="flex-1">
                         {service.name}{" "}
                         <span className="text-gray-500 text-sm">
                             (from {service.basePrice} €)
