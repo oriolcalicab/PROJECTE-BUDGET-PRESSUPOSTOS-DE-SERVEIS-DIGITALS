@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import { getQuoteById } from "../services/quotesService";
+import { useState } from "react";
 
 export const QuoteDetail = () => {
   const { id } = useParams<{ id: string }>();
   const quote = id ? getQuoteById(id) : null;
+  const [copied, setCopied] = useState(false);
 
   if (!quote) {
     return (
@@ -12,6 +14,13 @@ export const QuoteDetail = () => {
       </div>
     );
   }
+
+  function handleCopyLink() {
+    navigation.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
   return (
     <div className="max-w-xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-2">Quote</h1>
@@ -44,6 +53,12 @@ export const QuoteDetail = () => {
           <span>{quote.total} €</span>
         </p>
       </section>
+      <button
+        onClick={handleCopyLink}
+        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        {copied ? "Link copied!" : "Copy link"}
+      </button> 
     </div>
   );
 };
