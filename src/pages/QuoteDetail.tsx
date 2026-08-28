@@ -16,7 +16,7 @@ export const QuoteDetail = () => {
   }
 
   function handleCopyLink() {
-    navigation.clipboard.writeText(window.location.href);
+    navigator.clipboard.writeText(window.location.href);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }
