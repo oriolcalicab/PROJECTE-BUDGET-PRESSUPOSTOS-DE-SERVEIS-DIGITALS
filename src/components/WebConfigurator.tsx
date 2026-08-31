@@ -22,7 +22,7 @@ export function WebConfigurator ({ isVisible, webConfig, onChangeWebConfig }: Pr
             type="number"
             id="pages"
             min={0}
-            value={webConfig.pages}
+            value={webConfig.pages === 0 ? "" : webConfig.pages}
             onChange={(e) => onChangeWebConfig({ ...webConfig, pages: Number(e.target.value)})}
             aria-invalid={!isPositiveNumber(webConfig.pages)}
             className="border rounded px-3 py-2 w-full"
@@ -37,7 +37,7 @@ export function WebConfigurator ({ isVisible, webConfig, onChangeWebConfig }: Pr
             type="number"
             id="languages"
             min={0}
-            value={webConfig.languages}
+            value={webConfig.languages === 0 ? "" : webConfig.languages}
             onChange={(e) => onChangeWebConfig({ ...webConfig, languages: Number(e.target.value)})}
             aria-invalid={!isPositiveNumber(webConfig.languages)}
             className="border rounded px-3 py-2 w-full"

@@ -38,7 +38,7 @@ export function calculateQuote({
         name: service.name,
         cost: service.basePrice + customizationCost,
         details: `Pages: ${pages}, Languages: ${languages}`,  
-      }); // Example calculation for customization cos
+      }); 
     } else {
       lines.push({
         serviceId: id,
