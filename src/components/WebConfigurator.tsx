@@ -1,5 +1,5 @@
 import type { WebConfig } from "../types/service";
-import { isPositiveNumber } from "../utils/validations";
+
 
 interface Props {
   isVisible: boolean;
@@ -14,49 +14,67 @@ export function WebConfigurator({
 }: Props) {
   if (!isVisible) return null;
 
+  function updatePages(delta: number) {
+    const next = Math.max(1, webConfig.pages + delta);
+    onChangeWebConfig({ ...webConfig, pages: next });
+  }
+
+  function updateLanguages(delta: number) {
+    const next = Math.max(0, webConfig.languages + delta);
+    onChangeWebConfig({ ...webConfig, languages: next });
+  }
+
   return (
-    <main className="space-y-3 border-t pt-4 mt-4">
-      <h1 className="text-lg font-semibold mb-2">
-        Web service WebConfiguration
-      </h1>
-
-      <div>
-        <label htmlFor="pages" className="block mb-1">
-          Number of pages
-        </label>
-        <input
-          type="number"
-          id="pages"
-          min={1}
-          value={webConfig.pages === 0 ? "" : webConfig.pages}
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            onChangeWebConfig({ ...webConfig, pages: value < 1 ? 1 : value });
-          }}
-          aria-invalid={!isPositiveNumber(webConfig.pages)}
-          className="border rounded px-3 py-2 w-full"
-        />
+  <div className="mt-4 space-y-3 border-t border-gray-100 pt-4">
+      <div className="flex items-center justify-between">
+        <span className="text-sm text-gray-700">Nombre de pàgines</span>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => updatePages(-1)}
+            aria-label="Reduir nombre de pàgines"
+            className="h-5 w-5 rounded-full border border-gray-300 text-gray-600 flex items-center justify-center hover:border-[#2F9E6E] hover:text-[#2F9E6E]"
+          >
+            −
+          </button>
+          <span className="w-10 text-center rounded border border-gray-200 py-1 text-sm">
+            {webConfig.pages}
+          </span>
+          <button
+            type="button"
+            onClick={() => updatePages(1)}
+            aria-label="Augmentar nombre de pàgines"
+            className="h-5 w-5 rounded-full border border-gray-300 text-gray-600 flex items-center justify-center hover:border-[#2F9E6E] hover:text-[#2F9E6E]"
+          >
+            +
+          </button>
+        </div>
       </div>
 
-      <div>
-        <label htmlFor="languages" className="block mb-1">
-          Number of languages
-        </label>
-        <input
-          type="number"
-          id="languages"
-          min={0}
-          value={webConfig.languages === 0 ? "" : webConfig.languages}
-          onChange={(e) =>
-            onChangeWebConfig({
-              ...webConfig,
-              languages: Number(e.target.value),
-            })
-          }
-          aria-invalid={!isPositiveNumber(webConfig.languages)}
-          className="border rounded px-3 py-2 w-full"
-        />
+      <div className="flex items-center justify-between">
+        <span className="text-sm text-gray-700">Nombre de llenguatges</span>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => updateLanguages(-1)}
+            aria-label="Reduir nombre de llenguatges"
+            className="h-5 w-5 rounded-full border border-gray-300 text-gray-600 flex items-center justify-center hover:border-[#2F9E6E] hover:text-[#2F9E6E]"
+          >
+            −
+          </button>
+          <span className="w-10 text-center rounded border border-gray-200 py-1 text-sm">
+            {webConfig.languages}
+          </span>
+          <button
+            type="button"
+            onClick={() => updateLanguages(1)}
+            aria-label="Augmentar nombre de llenguatges"
+            className="h-5 w-5 rounded-full border border-gray-300 text-gray-600 flex items-center justify-center hover:border-[#2F9E6E] hover:text-[#2F9E6E]"
+          >
+            +
+          </button>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

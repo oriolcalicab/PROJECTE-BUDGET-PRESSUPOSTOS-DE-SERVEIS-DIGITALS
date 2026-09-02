@@ -12,7 +12,7 @@ export function QuoteRow({ quote }: { quote: Quote }) {
       <td className="p-2">
         <Link
           to={`/quote/${quote.id}`}
-          className="text-blue-500 hover:underline"
+          className="inline-block border border-[#2F9E6E] text-[#2F9E6E] rounded px-3 py-1 text-sm font-medium hover:bg-[#2F9E6E] hover:text-white transition-colors"
         >
           View Details
         </Link>
