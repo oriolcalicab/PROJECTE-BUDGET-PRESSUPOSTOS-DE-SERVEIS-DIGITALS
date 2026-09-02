@@ -1,33 +1,75 @@
 import servicesData from "../data/services.json";
+import { WebConfigurator } from "./WebConfigurator";
+import type { WebConfig } from "../types/service";
 
 interface Props {
     selectedServices: string[];
     onToggleService: (id: string) => void;
+    webConfig?: WebConfig;
+    onChangeWebConfig?: (config: WebConfig) => void;
 }
 
-export function ServiceSelector({selectedServices, onToggleService}: Props){
+export function ServiceSelector({
+  selectedServices,
+  onToggleService,
+  webConfig,
+  onChangeWebConfig,
+}: Props){
     const services = Object.values(servicesData);
 
     return(
-        <main className="space-y-3">
+        <main className="space-y-4">
             <h1 className="text-lg font-semibold mb-2">Select your services</h1>
-            {services.map((service) => (
-                <div key={service.id} className="flex items-center gap-3">
-                    <input type="checkbox"
+            {services.map((service) => {
+                const isSelected = selectedServices.includes(service.id);
+        const isWeb = service.id === "web";
+
+        return (
+          <div
+            key={service.id}
+            className={`rounded-2xl bg-white shadow-sm border p-5 transition-colors ${
+               isSelected ? "border-[#2F9E6E] border-[3px]" : "border-transparent"
+            }`}
+          >
+            <label
+              htmlFor={service.id}
+              className="flex items-center justify-between gap-4 cursor-pointer"
+            >
+              <div>
+                <p className="font-semibold text-base text-gray-900">
+                  {service.name}
+                </p>
+                <p className="text-sm text-gray-500">{service.description}</p>
+              </div>
+
+              <div className="flex items-center gap-6 shrink-0">
+                <span className="text-xl font-bold text-gray-900">
+                  {service.basePrice} €
+                </span>
+                <span className="flex items-center gap-2 text-sm text-gray-600">
+                  <input
+                    type="checkbox"
                     id={service.id}
-                    checked= {selectedServices.includes(service.id)}
-                    onChange={()=> onToggleService(service.id)}
-                    aria-checked={selectedServices.includes(service.id)}
-                    className="h-5 w-5" 
-                    />
-                    <label htmlFor={service.id} className="flex-1">
-                        {service.name}{" "}
-                        <span className="text-gray-500 text-sm">
-                            (from {service.basePrice} €)
-                        </span>
-                    </label>
-                </div>
-            ))}
+                    checked={isSelected}
+                    onChange={() => onToggleService(service.id)}
+                    aria-checked={isSelected}
+                    className="h-4 w-4 rounded accent-[#2F9E6E]"
+                  />
+                  Add
+                </span>
+              </div>
+            </label>
+
+            {isWeb && isSelected && webConfig && (
+              <WebConfigurator
+                isVisible={true}
+                webConfig={webConfig}
+                onChangeWebConfig={onChangeWebConfig ?? (() => {})}
+              />
+            )}
+          </div>
+        );
+      })}
         </main>
     )
 }
