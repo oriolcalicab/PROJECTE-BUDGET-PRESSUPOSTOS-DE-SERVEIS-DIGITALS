@@ -29,7 +29,7 @@ export function calculateQuote({
     if (!service) return;
 
     if (id === "web" && webConfig) {
-      const pages = webConfig.pages ?? 0;
+      const pages = Math.max(1, webConfig.pages ?? 1);
       const languages = webConfig.languages ?? 0;
       const customizationCost = (pages + languages) * (service.priceUnit ?? 0);
       
