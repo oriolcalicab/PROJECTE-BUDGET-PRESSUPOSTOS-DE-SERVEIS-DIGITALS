@@ -26,7 +26,11 @@ export function CreateQuote() {
 
   function handleToggleService(id: string) {
     setSelectedServices((prev) => {
-      return prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id];
+      const isRemoving = prev.includes(id);
+      if (id === "web" && isRemoving) {
+        setWebConfig({ pages: 1, languages: 0 });
+      }
+      return isRemoving ? prev.filter((serviceId) => serviceId !== id) : [...prev, id];
     });
   }
   const { lines, total } = calculateQuote({ selectedServices, webConfig });
