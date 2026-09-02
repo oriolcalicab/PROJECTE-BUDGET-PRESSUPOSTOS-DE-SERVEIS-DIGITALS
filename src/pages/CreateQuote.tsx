@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ServiceSelector } from "../components/ServiceSelector";
-import { WebConfigurator } from "../components/WebConfigurator";
 import { ClientForm } from "../components/ClientForm";
 import { QuoteSummary } from "../components/QuoteSummary";
 import { calculateQuote } from "../utils/calculateQuote";
@@ -63,14 +62,11 @@ export function CreateQuote() {
         <ServiceSelector
             selectedServices={selectedServices}
             onToggleService={handleToggleService}
-        />
-
-        <WebConfigurator
-            isVisible={selectedServices.includes("web")}
             webConfig={webConfig}
             onChangeWebConfig={setWebConfig}
         />
 
+       
         <ClientForm 
             clientData={clientData}
             onChangeClientData={setClientData}
@@ -79,7 +75,7 @@ export function CreateQuote() {
         <QuoteSummary lines={lines} total={total} />
 
         <button
-            className="mt-6 w-full md:w-full md:bg-cyan-700 lg:w-full lg:bg-blue-900 bg-blue-600 text-white rounded py-3 font-semibold disabled:opacity-40"
+            className="mt-6 w-full md:w-full md:bg-[#2F9E6E]  lg:w-full lg:bg-[#2F9E6E] hover:bg-[#268057] bg-[#2F9E6E] text-white rounded py-3 font-semibold disabled:opacity-40"
             onClick={handleGenerate}
             disabled={!isFormValid}
         >
@@ -90,3 +86,7 @@ export function CreateQuote() {
 
 
 }
+
+
+// "bg-[#2F9E6E] hover:bg-[#268057]"
+//       : "bg-[#2F9E6E]/40 cursor-not-allowed"

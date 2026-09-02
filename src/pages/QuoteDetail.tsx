@@ -16,7 +16,7 @@ export const QuoteDetail = () => {
   }
 
   function handleCopyLink() {
-    navigation.clipboard.writeText(window.location.href);
+    navigator.clipboard.writeText(window.location.href);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }
@@ -55,7 +55,7 @@ export const QuoteDetail = () => {
       </section>
       <button
         onClick={handleCopyLink}
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="mt-6 w-full md:w-auto md:px-8 bg-[#2F9E6E] hover:bg-[#268057] text-white rounded py-3 font-semibold transition-colors"
       >
         {copied ? "Link copied!" : "Copy link"}
       </button> 
