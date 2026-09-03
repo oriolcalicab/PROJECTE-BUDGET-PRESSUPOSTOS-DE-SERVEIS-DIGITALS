@@ -34,7 +34,7 @@ export function ServiceSelector({
           >
             <label
               htmlFor={service.id}
-              className="flex items-center justify-between gap-4 cursor-pointer"
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 cursor-pointer"
             >
               <div>
                 <p className="font-semibold text-base text-gray-900">
@@ -43,7 +43,7 @@ export function ServiceSelector({
                 <p className="text-sm text-gray-500">{service.description}</p>
               </div>
 
-              <div className="flex items-center gap-6 shrink-0">
+              <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-6 sm:shrink-0">
                 <span className="text-xl font-bold text-gray-900">
                   {service.basePrice} €
                 </span>
