@@ -3,10 +3,10 @@ import { WebConfigurator } from "./WebConfigurator";
 import type { WebConfig } from "../types/service";
 
 interface Props {
-    selectedServices: string[];
-    onToggleService: (id: string) => void;
-    webConfig?: WebConfig;
-    onChangeWebConfig?: (config: WebConfig) => void;
+  selectedServices: string[];
+  onToggleService: (id: string) => void;
+  webConfig?: WebConfig;
+  onChangeWebConfig?: (config: WebConfig) => void;
 }
 
 export function ServiceSelector({
@@ -14,26 +14,27 @@ export function ServiceSelector({
   onToggleService,
   webConfig,
   onChangeWebConfig,
-}: Props){
-    const services = Object.values(servicesData);
+}: Props) {
+  const services = Object.values(servicesData);
 
-    return(
-        <main className="space-y-4">
-            <h1 className="text-lg font-semibold mb-2">Select your services</h1>
-            {services.map((service) => {
-                const isSelected = selectedServices.includes(service.id);
+  return (
+    <main className="space-y-4">
+       {services.map((service) => {
+        const isSelected = selectedServices.includes(service.id);
         const isWeb = service.id === "web";
 
         return (
           <div
             key={service.id}
             className={`rounded-2xl bg-white shadow-sm border p-5 transition-colors ${
-               isSelected ? "border-[#2F9E6E] border-[3px]" : "border-transparent"
+              isSelected
+                ? "border-[#2F9E6E] border-[3px]"
+                : "border-transparent"
             }`}
           >
             <label
               htmlFor={service.id}
-              className="flex items-center justify-between gap-4 cursor-pointer"
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 cursor-pointer"
             >
               <div>
                 <p className="font-semibold text-base text-gray-900">
@@ -42,7 +43,7 @@ export function ServiceSelector({
                 <p className="text-sm text-gray-500">{service.description}</p>
               </div>
 
-              <div className="flex items-center gap-6 shrink-0">
+              <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-6 sm:shrink-0">
                 <span className="text-xl font-bold text-gray-900">
                   {service.basePrice} €
                 </span>
@@ -55,7 +56,7 @@ export function ServiceSelector({
                     aria-checked={isSelected}
                     className="h-4 w-4 rounded accent-[#2F9E6E]"
                   />
-                  Add
+                  Afegir
                 </span>
               </div>
             </label>
@@ -70,6 +71,6 @@ export function ServiceSelector({
           </div>
         );
       })}
-        </main>
-    )
+    </main>
+  );
 }

@@ -9,11 +9,10 @@ interface Props {
 export function ClientForm({ clientData, onChangeClientData }: Props) {
   return (
     <main className="space-y-3 border-t pt-4 mt-4">
-      <h1 className="text-lg font-semibold mb-2">Your details</h1>
-
+     
       <div>
         <label htmlFor="fullName" className="block mb-1">
-          Full name
+          nom
         </label>
         <input
           type="text"
@@ -28,7 +27,7 @@ export function ClientForm({ clientData, onChangeClientData }: Props) {
 
       <div>
         <label htmlFor="email" className="block mb-1">
-          Email address
+          Email 
         </label>
         <input
           type="email"
@@ -50,7 +49,7 @@ export function ClientForm({ clientData, onChangeClientData }: Props) {
 
       <div>
         <label htmlFor="phone" className="block mb-1">
-          Phone number
+          teléfon
         </label>
         <input
           type="tel"

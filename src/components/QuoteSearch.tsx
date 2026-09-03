@@ -7,7 +7,7 @@ export const QuoteSearch = ({ value, onChange }: Props) => {
   return (
     <div className="mb-4">
       <label htmlFor="search" className="block mb-1">
-        Search by name or email
+        Cerca per nom o correu electrònic
       </label>
       <input
         type="text"
