@@ -3,20 +3,31 @@ import type { Quote } from "../types/quote";
 
 export function QuoteRow({ quote }: { quote: Quote }) {
   return (
-    <tr className="border-b">
-      <td className="p-2">{quote.client.fullName}</td>
-      <td className="p-2">{quote.client.email}</td>
-      <td className="p-2">{quote.client.phone}</td>
-      <td className="p-2">{new Date(quote.date).toLocaleDateString()}</td>
-      <td className="p-2">{quote.total} €</td>
-      <td className="p-2">
-        <Link
-          to={`/quote/${quote.id}`}
-          className="inline-block border border-[#2F9E6E] text-[#2F9E6E] rounded px-3 py-1 text-sm font-medium hover:bg-[#2F9E6E] hover:text-white transition-colors"
+    <div className="rounded-2xl bg-white shadow-sm p-5 flex items-center justify-between gap-4">
+      <div>
+        <p className="font-semibold">{quote.client.fullName}</p>
+        <p className="text-sm text-gray-500">{quote.client.email}</p>
+        <p className="text-sm text-gray-500">{quote.client.phone}</p>
+      </div>
+
+      <div className="text-sm text-gray-600">
+        {quote.lines.map((line) => (
+          <p key={line.serviceId}>
+            {line.name}
+            {line.details ? ` (${line.details})` : ""}
+            </p>
+        ))}
+      </div>
+
+      <div className="text-right">
+        <p className="text-xl font-bold">{quote.total} € </p>
+        <Link 
+         to={`/quote/${quote.id}`}
+          className="inline-block mt-1 border border-[#2F9E6E] text-[#2F9E6E] rounded px-3 py-1 text-sm font-medium hover:bg-[#2F9E6E] hover:text-white transition-colors"
         >
-          View Details
+          Veure pressupost
         </Link>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 }

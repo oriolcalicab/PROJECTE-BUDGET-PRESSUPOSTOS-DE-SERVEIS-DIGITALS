@@ -23,20 +23,20 @@ export const QuoteDetail = () => {
 
   return (
     <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-2">Quote</h1>
+      <h1 className="text-2xl font-bold mb-2">Pressupost</h1>
       <p className="text-gray-500 mb-4">
         {new Date(quote.date).toLocaleDateString()}
       </p>
 
       <section className="mb-4">
-        <h2 className="font-semibold">Client details</h2>
+        <h2 className="font-semibold">Dades del client</h2>
         <p>{quote.client.fullName}</p>
         <p>{quote.client.email}</p>
         <p>{quote.client.phone}</p>
       </section>
 
       <section>
-        <h2 className="font-semibold mb-2">Quote items</h2>
+        <h2 className="font-semibold mb-2">Elements de cotització</h2>
         <ul className="space-y-1">
           {quote.lines.map((line) => (
             <li key={line.serviceId} className="flex justify-between items-start">

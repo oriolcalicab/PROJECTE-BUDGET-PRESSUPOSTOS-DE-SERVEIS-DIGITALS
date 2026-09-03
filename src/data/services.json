@@ -1,16 +1,16 @@
 {
   "seo": {
      "id": "seo",
-     "name": "SEO", 
+     "name": "Seo", 
      "basePrice": 300 ,
-     "description": "Optimize your website to rank higher on search engines"
+     "description": "Programació d'una web responsive completa"
     },
 
   "advertising": {
     "id": "advertising",
-    "name": "Advertising",
+    "name": "Ads",
     "basePrice": 400,
-    "description": "Targeted ad campaigns to grow your audience"
+    "description": "Programació d'una web responsive completa"
   },
 
   "web": {
@@ -18,6 +18,6 @@
       "name": "Web",
        "basePrice": 500, 
        "priceUnit": 30,
-       "description": "Fully responsive custom website development"
+       "description": "Programació d'una web responsive completa"
        }
 }

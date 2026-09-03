@@ -3,10 +3,10 @@ import { WebConfigurator } from "./WebConfigurator";
 import type { WebConfig } from "../types/service";
 
 interface Props {
-    selectedServices: string[];
-    onToggleService: (id: string) => void;
-    webConfig?: WebConfig;
-    onChangeWebConfig?: (config: WebConfig) => void;
+  selectedServices: string[];
+  onToggleService: (id: string) => void;
+  webConfig?: WebConfig;
+  onChangeWebConfig?: (config: WebConfig) => void;
 }
 
 export function ServiceSelector({
@@ -14,21 +14,22 @@ export function ServiceSelector({
   onToggleService,
   webConfig,
   onChangeWebConfig,
-}: Props){
-    const services = Object.values(servicesData);
+}: Props) {
+  const services = Object.values(servicesData);
 
-    return(
-        <main className="space-y-4">
-            <h1 className="text-lg font-semibold mb-2">Select your services</h1>
-            {services.map((service) => {
-                const isSelected = selectedServices.includes(service.id);
+  return (
+    <main className="space-y-4">
+       {services.map((service) => {
+        const isSelected = selectedServices.includes(service.id);
         const isWeb = service.id === "web";
 
         return (
           <div
             key={service.id}
             className={`rounded-2xl bg-white shadow-sm border p-5 transition-colors ${
-               isSelected ? "border-[#2F9E6E] border-[3px]" : "border-transparent"
+              isSelected
+                ? "border-[#2F9E6E] border-[3px]"
+                : "border-transparent"
             }`}
           >
             <label
@@ -55,7 +56,7 @@ export function ServiceSelector({
                     aria-checked={isSelected}
                     className="h-4 w-4 rounded accent-[#2F9E6E]"
                   />
-                  Add
+                  Afegir
                 </span>
               </div>
             </label>
@@ -70,6 +71,6 @@ export function ServiceSelector({
           </div>
         );
       })}
-        </main>
-    )
+    </main>
+  );
 }
