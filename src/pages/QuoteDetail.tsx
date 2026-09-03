@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getQuoteById } from "../services/quotesService";
 import { useState } from "react";
+import banner from "../assets/images/banner.png";
 
 export const QuoteDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,7 +24,7 @@ export const QuoteDetail = () => {
 
   return (
     <div className="max-w-xl mx-auto p-4">
-      <img src="/src/assets/images/banner.png" alt="itacademy - Aconsegueix la millor qualitat" className="w-full object-cover " />
+      <img src={banner} alt="itacademy - Aconsegueix la millor qualitat" className="w-full object-cover " />
       <h1 className="text-2xl mt-8 font-bold mb-2">Pressupost</h1>
       <p className="text-gray-500 mb-4">
         {new Date(quote.date).toLocaleDateString()}

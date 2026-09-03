@@ -10,6 +10,7 @@ import { saveQuote, getAllQuotes } from "../services/quotesService";
 import { isValidEmail, isValidPhone, isRequiredFieldValid } from "../utils/validations";
 import type { WebConfig } from "../types/service";
 import type { ClientData } from "../types/client";
+import banner from "../assets/images/banner.png";
 
 export function Home() {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ export function Home() {
   return (
     <div className="w-full max-w-3xl mx-auto p-4 md:p-6 space-y-10 overflow-x-hidden">
 
-      <img src="/src/assets/images/banner.png" alt="itacademy - Aconsegueix la millor qualitat" className="w-full object-cover " />
+      <img src={banner} alt="itacademy - Aconsegueix la millor qualitat" className="w-full object-cover " />
   
       <ServiceSelector
         selectedServices={selectedServices}
