@@ -70,6 +70,8 @@ export function Home() {
 
   return (
     <div className="max-w-3xl mx-auto p-4 md:p-6 space-y-10">
+
+      <img src="/src/assets/images/banner.png" alt="itacademy - Aconsegueix la millor qualitat" className="w-full object-cover " />
   
       <ServiceSelector
         selectedServices={selectedServices}

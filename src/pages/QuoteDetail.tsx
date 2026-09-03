@@ -23,7 +23,8 @@ export const QuoteDetail = () => {
 
   return (
     <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-2">Pressupost</h1>
+      <img src="/src/assets/images/banner.png" alt="itacademy - Aconsegueix la millor qualitat" className="w-full object-cover " />
+      <h1 className="text-2xl mt-8 font-bold mb-2">Pressupost</h1>
       <p className="text-gray-500 mb-4">
         {new Date(quote.date).toLocaleDateString()}
       </p>
@@ -36,7 +37,7 @@ export const QuoteDetail = () => {
       </section>
 
       <section>
-        <h2 className="font-semibold mb-2">Elements de cotització</h2>
+        <h2 className="font-semibold mb-2">Elements contrectats</h2>
         <ul className="space-y-1">
           {quote.lines.map((line) => (
             <li key={line.serviceId} className="flex justify-between items-start">
